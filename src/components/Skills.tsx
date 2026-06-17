@@ -1,61 +1,65 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import {
+  IoPhonePortraitOutline,
+  IoDesktopOutline,
+  IoCloudUploadOutline,
+  IoHardwareChipOutline,
+  IoGitBranchOutline,
+} from "react-icons/io5";
 
 export default function Skills() {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setAnimate(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const skills = [
-    { name: "Design", value: 90 },
-    { name: "Branding", value: 80 },
-    { name: "Web Design", value: 95 },
-    { name: "Social Media", value: 85 },
+  const skillCategories = [
+    {
+      title: "Mobile Development",
+      icon: IoPhonePortraitOutline,
+      skills: ["Flutter", "Dart", "Mobile UI Design", "State Management (Provider/Bloc)"],
+    },
+    {
+      title: "Web Development",
+      icon: IoDesktopOutline,
+      skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5 & CSS3", "Tailwind CSS"],
+    },
+    {
+      title: "Backend & Database",
+      icon: IoCloudUploadOutline,
+      skills: ["Firebase Firestore", "Supabase", "Firebase Auth & Security Rules", "RESTful APIs"],
+    },
+    {
+      title: "AI Integration & Tools",
+      icon: IoHardwareChipOutline,
+      skills: ["Gemini API", "ChatGPT API", "Claude", "Kaggle (Data Science & ML Experiments)"],
+    },
+    {
+      title: "Version Control & DevOps",
+      icon: IoGitBranchOutline,
+      skills: ["Git", "GitHub", "Vercel Deployment", "Cloudflare", "Google Cloud Platform"],
+    },
   ];
 
   return (
-    <section className="section skills" aria-label="our skills">
+    <section id="skills" className="section skills" aria-label="skills">
       <div className="container">
-        <p className="section-subtitle">I Make The Future</p>
-        <h2 className="h2 section-title">I Develop & Create Digital Future.</h2>
+        <p className="section-subtitle">Keahlian & Tech Stack</p>
+        <h2 className="h2 section-title">Peralatan & Teknologi Yang Saya Gunakan</h2>
 
-        <div className="skills-wrapper">
-          <div>
-            <p className="section-text">
-              Every detail is meticulously crafted to ensure the final product stands out visually and functions flawlessly. Design meets execution to deliver digital excellence.
-            </p>
-            <p className="section-text">
-              By prioritizing clean structures, elegant visual balance, and modern design semantics, I turn creative visions into scalable software products.
-            </p>
-            <a href="mailto:info@haekalakbar.com" className="btn has-before">
-              info@haekalakbar.com
-            </a>
-          </div>
-
-          <div>
-            <ul className="skills-list">
-              {skills.map((skill, idx) => (
-                <li key={idx}>
-                  <div className="progress-wrapper">
-                    <p className="progress-label">{skill.name}</p>
-                    <data className="progress-value" value={skill.value}>
-                      {skill.value}%
-                    </data>
-                  </div>
-                  <div className="progress-bg">
-                    <div
-                      className="progress"
-                      style={{ width: animate ? `${skill.value}%` : "0%" }}
-                    ></div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="skills-grid">
+          {skillCategories.map((cat, idx) => {
+            const Icon = cat.icon;
+            return (
+              <div key={idx} className="skill-category-card">
+                <h3 className="skill-category-title">
+                  <Icon size={20} />
+                  {cat.title}
+                </h3>
+                <div className="tech-tags-list">
+                  {cat.skills.map((skill, sIdx) => (
+                    <span key={sIdx} className="tech-tag">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

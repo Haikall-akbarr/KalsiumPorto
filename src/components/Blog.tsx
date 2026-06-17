@@ -4,19 +4,19 @@ import { IoArrowForward } from "react-icons/io5";
 export default function Blog() {
   const blogs = [
     {
-      title: "Get Started With Tiktok Ads.",
-      date: "24",
-      monthYear: "June 2022",
-      dateTime: "2022-06-24",
-      text: "Phasellus et lacus suscipit congue nis in the miss mine one miss the drana risus in tincidunt ornare.",
+      title: "Integrasi Gemini API dalam Next.js 15",
+      date: "15",
+      monthYear: "Maret 2026",
+      dateTime: "2026-03-15",
+      text: "Panduan lengkap bagaimana mengintegrasikan Gemini API menggunakan SDK resmi Google GenAI ke dalam aplikasi berbasis Next.js untuk fitur AI dinamis.",
       image: "/assets/images/blog-1.jpg",
     },
     {
-      title: "UX in Ecommerce – 5 things to avoid.",
-      date: "27",
-      monthYear: "June 2022",
-      dateTime: "2022-06-27",
-      text: "Phasellus et lacus suscipit congue nis in the miss mine one miss the drana risus in tincidunt ornare.",
+      title: "Membangun Platform Ekskursi Lokal BDJ Walking Tour",
+      date: "10",
+      monthYear: "Januari 2026",
+      dateTime: "2026-01-10",
+      text: "Cerita di balik layar pembuatan BDJ Walking Tour, menangani arsitektur Firestore database, routing dinamis, dan optimasi load image di Next.js.",
       image: "/assets/images/blog-2.jpg",
     },
   ];
@@ -24,8 +24,8 @@ export default function Blog() {
   return (
     <section id="blog" className="section blog" aria-labelledby="blog-label">
       <div className="container">
-        <p className="section-subtitle" id="blog-label">Recent Articles</p>
-        <h2 className="h2 section-title">Latest News</h2>
+        <p className="section-subtitle" id="blog-label">Artikel Terbaru</p>
+        <h2 className="h2 section-title">Kabar & Catatan Terbaru</h2>
 
         <ul className="blog-list">
           {blogs.map((blog, idx) => (

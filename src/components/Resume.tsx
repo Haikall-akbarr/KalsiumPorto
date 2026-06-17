@@ -1,74 +1,51 @@
-import { IoSchoolOutline, IoBriefcaseOutline } from "react-icons/io5";
+import { IoCalendarOutline } from "react-icons/io5";
 
 export default function Resume() {
-  const education = [
+  const timelineData = [
     {
-      title: "Bachelor of Computer Science",
-      duration: "2020 - 2024",
-      institution: "State University",
-      text: "Specialized in Software Engineering and Web Technologies. Graduated with honors, focusing on user experience design and full stack development.",
+      date: "Maret 2026",
+      title: "Seminar Proposal Tugas Akhir",
+      subtitle: "Teknik Informatika - Politeknik Negeri Banjarmasin",
+      text: "Tahap awal pengerjaan proyek tugas akhir D3 Teknik Informatika, mengajukan rancangan arsitektur aplikasi dan pemecahan masalah teknis menggunakan integrasi sistem cerdas.",
     },
     {
-      title: "Web Development Certifications",
-      duration: "2018 - Present",
-      institution: "Udemy / Coursera / Frontend Masters",
-      text: "Completed extensive courses in React, Next.js, UI/UX Design, and Performance Optimization to stay at the cutting edge of front-end tech.",
-    },
-  ];
-
-  const experience = [
-    {
-      title: "Creative Web & App Developer",
-      duration: "2023 - Present",
-      institution: "Freelance & Agency",
-      text: "Building premium websites and apps for diverse international clients. Spearheading responsive layout designs and interactive user animations.",
+      date: "September 2024 - Januari 2025",
+      title: "Magang Industri (Internship Profesional)",
+      subtitle: "Developer Magang - Lingkungan Industri Nyata",
+      text: "Fokus pada pemeliharaan server, optimasi query basis data relasional, pembangunan antarmuka pelaporan internal, dan penyelesaian bug/troubleshooting langsung di lapangan.",
     },
     {
-      title: "Frontend Developer",
-      duration: "2022 - 2023",
-      institution: "Tech Startup Corp",
-      text: "Worked closely with designers to build and deploy complex dashboards, landing pages, and customized component systems using React.",
+      date: "2023 - Sekarang",
+      title: "Pendidikan D3 Teknik Informatika",
+      subtitle: "Mahasiswa - Politeknik Negeri Banjarmasin",
+      text: "Mempelajari fundamental rekayasa perangkat lunak, struktur data, pemrograman berorientasi objek (OOP), analisis database relasional, serta pengembangan aplikasi mobile dan web.",
     },
   ];
 
   return (
     <section id="resume" className="section resume" aria-label="resume">
       <div className="container">
-        <p className="section-subtitle">My Background</p>
-        <h2 className="h2 section-title">Education & Experience</h2>
+        <p className="section-subtitle">Garis Waktu</p>
+        <h2 className="h2 section-title">Pendidikan & Pengalaman</h2>
 
-        <div className="resume-wrapper">
-          <div>
-            <h3 className="resume-column-title">
-              <IoSchoolOutline size={24} />
-              Education
-            </h3>
-            <ul className="timeline-list">
-              {education.map((item, idx) => (
-                <li key={idx} className="timeline-item">
-                  <h4 className="timeline-title">{item.title}</h4>
-                  <p className="timeline-duration">{item.duration} | {item.institution}</p>
-                  <p className="timeline-text">{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="resume-column-title">
-              <IoBriefcaseOutline size={24} />
-              Experience
-            </h3>
-            <ul className="timeline-list">
-              {experience.map((item, idx) => (
-                <li key={idx} className="timeline-item">
-                  <h4 className="timeline-title">{item.title}</h4>
-                  <p className="timeline-duration">{item.duration} | {item.institution}</p>
-                  <p className="timeline-text">{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="timeline-container">
+          {timelineData.map((item, idx) => (
+            <div key={idx} className="timeline-card">
+              <div className="timeline-meta" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <IoCalendarOutline size={14} />
+                <span>{item.date}</span>
+              </div>
+              <h3 className="h3 timeline-title" style={{ fontSize: "2rem", marginBlock: "6px 4px" }}>
+                {item.title}
+              </h3>
+              <p className="timeline-inst" style={{ color: "var(--color-accent-green)", fontSize: "1.4rem", marginBlockEnd: "12px" }}>
+                {item.subtitle}
+              </p>
+              <p className="timeline-text" style={{ fontSize: "1.5rem", lineHeight: "1.6" }}>
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

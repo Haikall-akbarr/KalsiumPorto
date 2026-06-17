@@ -1,11 +1,11 @@
 import Preloader from "@/components/Preloader";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Resume from "@/components/Resume";
-import Services from "@/components/Services";
+import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Portfolio from "@/components/Portfolio";
-import Blog from "@/components/Blog";
+import Resume from "@/components/Resume";
+import BeyondCode from "@/components/BeyondCode";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -17,11 +17,11 @@ export default function Home() {
       <main>
         <article>
           <Hero />
-          <Resume />
-          <Services />
+          <About />
           <Skills />
           <Portfolio />
-          <Blog />
+          <Resume />
+          <BeyondCode />
           <Contact />
         </article>
       </main>

@@ -3,11 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import {
   IoDesktopOutline,
-  IoPodiumOutline,
-  IoBasketOutline,
+  IoPhonePortraitOutline,
+  IoCloudUploadOutline,
+  IoHardwareChipOutline,
+  IoGitBranchOutline,
   IoColorFilterOutline,
-  IoMegaphoneOutline,
-  IoChatbubblesOutline,
   IoArrowBack,
   IoArrowForward,
 } from "react-icons/io5";
@@ -21,39 +21,39 @@ export default function Services() {
   const services = [
     {
       num: "01",
-      title: "Website Design",
-      text: "We design modern, responsive, and intuitive website interfaces tailored to user and business goals.",
+      title: "Web Development",
+      text: "Membangun aplikasi web modern, responsif, dan interaktif menggunakan React, Next.js, dan TypeScript.",
       icon: IoDesktopOutline,
     },
     {
       num: "02",
-      title: "SEO Marketing",
-      text: "Optimize search engine performance to drive qualified organic traffic to your application or landing page.",
-      icon: IoPodiumOutline,
+      title: "Mobile Development",
+      text: "Mengembangkan aplikasi mobile multiplatform (Android & iOS) yang responsif menggunakan Flutter dan Dart.",
+      icon: IoPhonePortraitOutline,
     },
     {
       num: "03",
-      title: "eCommerce",
-      text: "Develop stable, feature-rich online shopping portals with smooth checkout flows and safe transactions.",
-      icon: IoBasketOutline,
+      title: "Backend & Cloud",
+      text: "Merancang arsitektur database, REST API, dan deployment cloud menggunakan Firebase, Supabase, dan Cloudflare.",
+      icon: IoCloudUploadOutline,
     },
     {
       num: "04",
-      title: "Graphic Design",
-      text: "Craft outstanding corporate brand identities, logos, style guidelines, and creative digital assets.",
-      icon: IoColorFilterOutline,
+      title: "AI Integration",
+      text: "Mengintegrasikan model kecerdasan buatan seperti Gemini API dan ChatGPT API ke dalam sistem aplikasi Anda.",
+      icon: IoHardwareChipOutline,
     },
     {
       num: "05",
-      title: "Digital Marketing",
-      text: "Deploy targeted campaign structures that expand brand footprint and boost conversions.",
-      icon: IoMegaphoneOutline,
+      title: "Version Control & DevOps",
+      text: "Mengatur kolaborasi kode, automated deployment, dan alur kerja integrasi berkelanjutan menggunakan Git & GitHub.",
+      icon: IoGitBranchOutline,
     },
     {
       num: "06",
-      title: "Social Media",
-      text: "Manage engaging content streams and active community interactions across all major social networks.",
-      icon: IoChatbubblesOutline,
+      title: "UI/UX & Prototyping",
+      text: "Merancang wireframe, desain interface yang intuitif, dan prototipe produk interaktif di Figma.",
+      icon: IoColorFilterOutline,
     },
   ];
 
@@ -107,11 +107,11 @@ export default function Services() {
       <div className="container">
         <div className="title-wrapper">
           <div>
-            <p className="section-subtitle">Services That I Provide</p>
-            <h2 className="h2 section-title" id="service-label">Services</h2>
+            <p className="section-subtitle">Layanan Yang Saya Sediakan</p>
+            <h2 className="h2 section-title" id="service-label">Layanan</h2>
           </div>
           <p className="section-text">
-            I offer a wide array of digital solutions including custom responsive website architecture, strategic SEO positioning, and creative graphics to elevate your product experience and online presence.
+            Saya menyediakan solusi digital mencakup pemrograman web modern, pengembangan aplikasi mobile multiplatform, desain sistem interface (UI/UX), hingga integrasi kecerdasan buatan.
           </p>
         </div>
 

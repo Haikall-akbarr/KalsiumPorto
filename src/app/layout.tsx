@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Syne, Inter } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "500", "700", "800"],
 });
 
 const inter = Inter({
@@ -15,10 +15,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Haekal Akbar - Web & App Developer",
-  description: "Hi, I'm Haekal Akbar and I am a creative web & app developer who dreams of making the world a better place by creating captivating products.",
-  keywords: "Haekal Akbar, Web Developer, App Developer, Portfolio, React, Next.js, Frontend Developer",
-  authors: [{ name: "Haekal Akbar" }],
+  title: "M. Haikal Akbar - Web & Mobile Developer",
+  description: "Portofolio profesional M. Haikal Akbar, mahasiswa Teknik Informatika di Politeknik Negeri Banjarmasin & Full-stack Web & Mobile Developer.",
+  keywords: "M. Haikal Akbar, Haikal Akbar, Web Developer, Mobile Developer, Flutter, Next.js, Banjarmasin",
+  authors: [{ name: "M. Haikal Akbar" }],
   icons: {
     icon: "/favicon.svg",
   },
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
         {children}
       </body>

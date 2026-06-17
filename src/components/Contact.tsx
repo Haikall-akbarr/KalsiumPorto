@@ -6,37 +6,62 @@ import { IoMailOutline, IoLocationOutline, IoCallOutline } from "react-icons/io5
 export default function Contact() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) {
+      setErrorMessage("Please fill in all fields before submitting.");
       setStatus("error");
       return;
     }
 
     setStatus("sending");
-    // Simulate API request
-    setTimeout(() => {
-      setStatus("success");
-      setFormState({ name: "", email: "", message: "" });
-    }, 1500);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setFormState({ name: "", email: "", message: "" });
+      } else {
+        setErrorMessage(data.error || "Failed to send message. Please try again.");
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      setErrorMessage("Network error. Please check your internet connection.");
+      setStatus("error");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
-    if (status === "error") setStatus("idle");
+    if (status === "error") {
+      setStatus("idle");
+      setErrorMessage("");
+    }
   };
 
   return (
     <section id="contact" className="section contact" aria-label="contact">
       <div className="container">
-        <p className="section-subtitle">Get In Touch</p>
-        <h2 className="h2 section-title">Contact Me</h2>
+        <p className="section-subtitle">Hubungi Saya</p>
+        <h2 className="h2 section-title">Hubungi Saya</h2>
 
         <div className="contact-wrapper">
           <div className="contact-info">
             <p className="section-text">
-              I am open to discussing new projects, creative design ideas, or engineering opportunities. Let&apos;s build something amazing together!
+              Saya terbuka untuk mendiskusikan proyek baru, ide pengembangan aplikasi, kolaborasi pemrograman, atau integrasi AI. Hubungi saya langsung di bawah!
             </p>
 
             <div className="contact-info-item">
@@ -44,9 +69,9 @@ export default function Contact() {
                 <IoMailOutline />
               </div>
               <div>
-                <p className="contact-info-title">Email Me</p>
-                <a href="mailto:info@haekalakbar.com" className="contact-info-value">
-                  info@haekalakbar.com
+                <p className="contact-info-title">Email Saya</p>
+                <a href="mailto:haikalakbar.dev@gmail.com" className="contact-info-value">
+                  haikalakbar.dev@gmail.com
                 </a>
               </div>
             </div>
@@ -56,7 +81,7 @@ export default function Contact() {
                 <IoCallOutline />
               </div>
               <div>
-                <p className="contact-info-title">Call Me</p>
+                <p className="contact-info-title">Telepon</p>
                 <a href="tel:+628123456789" className="contact-info-value">
                   +62 812 3456 789
                 </a>
@@ -68,8 +93,8 @@ export default function Contact() {
                 <IoLocationOutline />
               </div>
               <div>
-                <p className="contact-info-title">Location</p>
-                <p className="contact-info-value">Jakarta, Indonesia</p>
+                <p className="contact-info-title">Lokasi</p>
+                <p className="contact-info-value">Banjarmasin, Kalimantan Selatan, Indonesia</p>
               </div>
             </div>
           </div>
@@ -127,7 +152,7 @@ export default function Contact() {
 
             {status === "error" && (
               <div className="form-status error">
-                Please fill in all the fields before submitting.
+                {errorMessage || "Please fill in all the fields before submitting."}
               </div>
             )}
 
